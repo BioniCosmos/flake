@@ -51,6 +51,6 @@
       };
     };
 
-    overlay = final: prev: { trzsz = self.defaultPackage.${prev.system}; };
+    overlay = final: prev: { trzsz = self.defaultPackage.${prev.stdenv.hostPlatform.system}; };
   };
 }
