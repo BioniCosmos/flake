@@ -35,7 +35,7 @@
   overlays.${pkg} = final: prev:
     { ${pkg} = self.packages.${prev.stdenv.hostPlatform.system}.${pkg}; };
 
-  nixosModules.${pname} = { config, lib, pkgs, ... }: { 
+  nixosModules.${pname} = { config, lib, pkgs, ... }: {
     options.services.${pname} = {
       enable = lib.mkEnableOption pname;
       env = lib.mkOption { type = lib.types.anything; };
@@ -69,7 +69,9 @@
             ProtectControlGroups = true;
             RestrictAddressFamilies = "AF_UNIX AF_INET AF_INET6";
             RestrictNamespaces = true;
-            PrivateBPF = true;
+            # There seems to be a bug in systemd where `PrivateBPF` and
+            # `PrivatePIDs` cannot be enabled simultaneously.
+            # PrivateBPF = true;
             LockPersonality = true;
             MemoryDenyWriteExecute = true;
             RestrictRealtime = true;
