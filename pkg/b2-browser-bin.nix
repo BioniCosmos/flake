@@ -20,15 +20,15 @@
   }) {
     x86_64-linux = {
       target = "linux-x86_64";
-      hash = "";
+      hash = "sha256-UkmrQg9rtpmZzkw2jFVS7s/8SnSLwWvjqL93LbNanyA=";
     };
     aarch64-linux = {
       target = "linux-aarch64";
-      hash = "sha256-GsOdFp3PXHK8xgOUX1rWnMTOxNGVMPZL9+hPS143w9g=";
+      hash = "sha256-WS2ai+MILEAU4EtRoHM2QfTLeT4gR1V35HSY2sDwbOQ=";
     };
     aarch64-darwin = {
       target = "macos-aarch64";
-      hash = "";
+      hash = "sha256-4RlNc8eJ5+7T/wM+5Zs2dTFP1LOonj7M3ma4juxp5fo=";
     };
   };
 
