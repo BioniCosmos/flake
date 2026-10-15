@@ -20,7 +20,7 @@ Nix package collection repository
 ### [B2 Browser](https://github.com/BioniCosmos/b2-browser) (binary)
 
 - name: `b2-browser-bin`
-- version: [0.1.0](https://github.com/BioniCosmos/b2-browser/releases/tag/v0.1.0)
+- version: [0.1.1](https://github.com/BioniCosmos/b2-browser/releases/tag/v0.1.1)
 - platforms:
   - x86_64-linux
   - aarch64-linux
