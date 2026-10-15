@@ -2,7 +2,7 @@
   packages = lib.mapAttrs (system: { target, hash }: {
     ${pkg} = derivation (let
       pkgs = legacyPackages.${system};
-      version = "0.1.0";
+      version = "0.1.1";
       url = "https://github.com/BioniCosmos/${pname}/releases/download/v${version}/${pname}-${target}";
     in {
       name = "${pname}-${version}";
