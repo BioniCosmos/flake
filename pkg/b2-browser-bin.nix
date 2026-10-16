@@ -35,18 +35,20 @@
   overlays.${pkg} = final: prev:
     { ${pkg} = self.packages.${prev.stdenv.hostPlatform.system}.${pkg}; };
 
-  nixosModules.${pname} = { config, lib, pkgs, ... }: {
+  nixosModules.${pname} = { lib, config, pkgs, ... }: with lib; {
     options.services.${pname} = {
-      enable = lib.mkEnableOption pname;
-      env = lib.mkOption { type = lib.types.anything; };
+      enable = mkEnableOption pname;
+      env = mkOption { type = types.anything; };
+      package = mkPackageOption pkgs pkg {};
     };
 
-    config = { nixpkgs.overlays = [ self.overlays.${pkg} ]; }
-      // lib.mkIf config.services.${pname}.enable {
+    config = mkMerge [
+      { nixpkgs.overlays = with self.overlays; [ b2-browser-bin b2-browser ]; }
+      (let cfg = config.services.${pname}; in mkIf cfg.enable {
         systemd.services.${pname} = {
           serviceConfig = {
             Type = "exec";
-            ExecStart = "${self.packages.${pkgs.stdenv.hostPlatform.system}.${pkg}}/bin/${pname}";
+            ExecStart = getExe' cfg.package pname;
             RestartSec = 1;
             RestartSteps = 5;
             RestartMaxDelaySec = 60;
@@ -79,11 +81,12 @@
             SystemCallErrorNumber = "EPERM";
             SystemCallArchitectures = "native";
           };
-          environment = config.services.${pname}.env;
+          environment = cfg.env;
           startLimitIntervalSec = 15 * 60;
           startLimitBurst = 6;
           wantedBy = [ "multi-user.target" ];
         };
-      };
+      })
+    ];
   };
 }

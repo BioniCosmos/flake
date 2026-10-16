@@ -5,6 +5,7 @@
       map (x: import x (params // { inherit lib legacyPackages; })) [
         ./pkg/trzsz.nix
         ./pkg/b2-browser-bin.nix
+        ./pkg/b2-browser.nix
       ]
     );
 }
