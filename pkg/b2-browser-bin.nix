@@ -1,34 +1,25 @@
 { self, lib, legacyPackages, ... }: let pname = "b2-browser"; pkg = "${pname}-bin"; in {
   packages = lib.mapAttrs (system: { target, hash }: {
-    ${pkg} = derivation (let
+    ${pkg} = let
       pkgs = legacyPackages.${system};
       version = "0.1.2";
       url = "https://github.com/BioniCosmos/${pname}/releases/download/v${version}/${pname}-${target}";
-    in {
-      name = "${pname}-${version}";
-      inherit system;
-      builder = "/bin/sh";
-      PATH = "${pkgs.coreutils}/bin";
-      args = [
-        "-c"
-        ''
-        mkdir -p $out/bin
-        cp ${pkgs.fetchurl { inherit url hash; executable = true; }} $out/bin/${pname}
-        ''
-      ];
-    });
+    in pkgs.runCommand
+      "${pname}-${version}"
+      {}
+      "install -D ${pkgs.fetchurl { inherit url hash; }} $out/bin/${pname}";
   }) {
     x86_64-linux = {
       target = "linux-x86_64";
-      hash = "sha256-pZqs17E2xiLJPO86gCeeGuDojOEjrI+sZGz+S19in6Y=";
+      hash = "sha256-7Oaxlj88FN79yGVwZR6LysMO/nJ/DQObJgQnc0S2UNs=";
     };
     aarch64-linux = {
       target = "linux-aarch64";
-      hash = "sha256-dc+kPDgCyVW/k4LVk5v2XAyKLyuIeXWh93MmrAlNGUA=";
+      hash = "sha256-Q7fS3bRvD3med7jlppgn9nCkVHMxkzzEYrzAMSmJsCs=";
     };
     aarch64-darwin = {
       target = "macos-aarch64";
-      hash = "sha256-X6dwvfwK/TnMRmyrvkh3CJgbOtFzrRzMJsLFxZj/izs=";
+      hash = "sha256-vcns54omqzNHATR7akCctOhemaYz/3R1Cpu55T/ripo=";
     };
   };
 
