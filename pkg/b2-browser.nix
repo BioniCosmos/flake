@@ -2,12 +2,12 @@
   packages = lib.genAttrs lib.systems.flakeExposed (platform: {
     ${pname} = let
       pkgs = legacyPackages.${platform};
-      version = "0.1.2";
+      version = "0.1.4";
       src = pkgs.fetchFromGitHub {
         owner = "BioniCosmos";
         repo = pname;
         tag = "v${version}";
-        hash = "sha256-TuJ5uKuK08Epw8iatfrQjYoj1/IAQPaEoF0g54o+QzU=";
+        hash = "sha256-dVrznwU+Z0w4VVDqoMYQOcZfv4+s3hdQhG6jOYmfP2o=";
       };
     in pkgs.rustPlatform.buildRustPackage {
       inherit pname version src;
