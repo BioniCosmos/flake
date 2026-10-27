@@ -20,7 +20,7 @@ Nix package collection repository
 ### [B2 Browser](https://github.com/BioniCosmos/b2-browser) (binary)
 
 - name: `b2-browser-bin`
-- version: [0.1.1](https://github.com/BioniCosmos/b2-browser/releases/tag/v0.1.1)
+- version: [0.1.4](https://github.com/BioniCosmos/b2-browser/releases/tag/v0.1.4)
 - platforms:
   - x86_64-linux
   - aarch64-linux
@@ -28,11 +28,20 @@ Nix package collection repository
 
 ### [B2 Browser](https://github.com/BioniCosmos/b2-browser)
 
-- name: `b2-browser-bin`
-- version: [0.1.1](https://github.com/BioniCosmos/b2-browser/tree/39b08b20a2a70e7d9c863cd0da5cd02b254113b4)
+- name: `b2-browser`
+- version: [0.1.4](https://github.com/BioniCosmos/b2-browser/releases/tag/v0.1.4)
 - platforms:
   - x86_64-linux
   - aarch64-linux
   - i686-linux
   - aarch64-darwin
   - x86_64-darwin
+
+### [Unique Id Service](https://github.com/BioniCosmos/unique-id-service)
+
+- name: `unique-id-service`
+- version: [](https://github.com/BioniCosmos/unique-id-service/releases/tag/v0.1.1)
+- platforms:
+  - x86_64-linux
+  - aarch64-linux
+  - aarch64-darwin

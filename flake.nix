@@ -6,6 +6,7 @@
         ./pkg/trzsz.nix
         ./pkg/b2-browser-bin.nix
         ./pkg/b2-browser.nix
+        ./pkg/unique-id-service.nix
       ]
     );
 }
