@@ -38,7 +38,7 @@
         systemd.services.${pname} = {
           serviceConfig = {
             Type = "exec";
-            ExecStart = getExe' pkgs.${pname} pname;
+            ExecStart = getExe pkgs.${pname};
             RestartSec = 1;
             RestartSteps = 5;
             RestartMaxDelaySec = 60;
