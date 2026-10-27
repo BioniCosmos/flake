@@ -49,9 +49,12 @@
             CapabilityBoundingSet = "";
             UMask = 0077;
             ProtectHome = true;
+            StateDirectory = "%N";
             PrivateDevices = true;
             PrivateIPC = true;
-            PrivatePIDs = true;
+            # `PrivatePIDs`, `DynamicUser`, `StateDirectory` cannot be set simultaneously.
+            # issue: <https://github.com/systemd/systemd/issues/41014>
+            # PrivatePIDs = true;
             PrivateUsers = true;
             ProtectHostname = true;
             ProtectClock = true;
@@ -61,9 +64,7 @@
             ProtectControlGroups = true;
             RestrictAddressFamilies = "AF_UNIX AF_INET AF_INET6";
             RestrictNamespaces = true;
-            # There seems to be a bug in systemd where `PrivateBPF` and
-            # `PrivatePIDs` cannot be enabled simultaneously.
-            # PrivateBPF = true;
+            PrivateBPF = true;
             LockPersonality = true;
             MemoryDenyWriteExecute = true;
             RestrictRealtime = true;
