@@ -2,7 +2,7 @@
   packages = lib.mapAttrs (system: { target, hash }: {
     ${pname} = let
       pkgs = legacyPackages.${system};
-      version = "0.1.1";
+      version = "0.1.2";
       url = "https://github.com/BioniCosmos/${pname}/releases/download/v${version}/uid-${target}";
     in pkgs.runCommand
       "${pname}-${version}"
@@ -11,15 +11,15 @@
   }) {
     x86_64-linux = {
       target = "linux-x86_64";
-      hash = "sha256-sjXDtBUcLUOs4ou8JYS43vhlZeKSz3WqRGd1s+XhGHI=";
+      hash = "sha256-XWge+CpNP5pjlfHt64HNlafEScF0VKfjUe2flIzJRyw=";
     };
     aarch64-linux = {
       target = "linux-aarch64";
-      hash = "sha256-OB2QN5/QhxTCTzdPiTGiwEUHAQ7gesbtes16lb29vlI=";
+      hash = "sha256-7Y0wqe6RvoQUMjBgc2cwCg6J0cJkyYvO5p9KC51q5z4=";
     };
     aarch64-darwin = {
       target = "macos-aarch64";
-      hash = "sha256-uhPoIjZIgjqbV1LIO2QV7J5HTm79QbSATFXorlM3Drs=";
+      hash = "sha256-WnGaZbxHeLfXyryM1SD7oytZzAs16xeUnU07Va5wJ8M=";
     };
   };
 
