@@ -33,7 +33,7 @@
     };
 
     config = mkMerge [
-      { nixpkgs.overlays = self.overlays.${pname}; }
+      { nixpkgs.overlays = [ self.overlays.${pname} ]; }
       (let cfg = config.services.${pname}; in mkIf cfg.enable {
         systemd.services.${pname} = {
           serviceConfig = {
