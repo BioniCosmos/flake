@@ -40,7 +40,7 @@ Nix package collection repository
 ### [Unique Id Service](https://github.com/BioniCosmos/unique-id-service)
 
 - name: `unique-id-service`
-- version: [](https://github.com/BioniCosmos/unique-id-service/releases/tag/v0.1.1)
+- version: [0.1.1](https://github.com/BioniCosmos/unique-id-service/releases/tag/v0.1.1)
 - platforms:
   - x86_64-linux
   - aarch64-linux
